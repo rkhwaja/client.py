@@ -35,7 +35,7 @@ class GetCleanLogs(CommandWithHandling):
                             image_url=log["imageUrl"],
                             type=log["type"],
                             area=log["area"],
-                            stop_reason=CleanJobStatus(int(log["stopReason"])),
+                            stop_reason=CleanJobStatus(int(log.get("stopReason", 1))), # Deebot 90x doesn't return the stop reason
                             duration=log["last"],
                         )
                     )
